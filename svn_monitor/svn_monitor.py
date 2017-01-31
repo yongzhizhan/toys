@@ -57,9 +57,9 @@ class SvnMonitor:
                 if svn_info.last_revision == cur_revision:
                     continue
 
-                mail_addresses = self.session.query(MailInfo).filter(MailInfo.svn_id == svn_info.id).all()
-                for mail_address in mail_addresses:
-                    self.notify(svn_info, mail_address, cur_revision)
+                mail_infos = self.session.query(MailInfo).filter(MailInfo.svn_id == svn_info.id).all()
+                for mail_info in mail_infos:
+                    self.notify(svn_info, mail_info.mail_address, cur_revision)
 
                 #update
                 self.session.query(SvnInfo).filter(SvnInfo.id == svn_info.id).update({SvnInfo.last_revision: cur_revision})
@@ -74,7 +74,7 @@ class SvnMonitor:
     def notify(self, svn_info, mail_address, cur_revision):
         print "notify revision is " + str(cur_revision)
 
-        mail = Mail(config.email_smtp, "svn monitor", "to " + mail_address, "new revision: " + str(cur_revision), svn_info.path + " updated current revision is: " + cur_revision)
+        mail = Mail(config.email_smtp, "svn monitor", "to " + mail_address, "new revision: " + str(cur_revision), svn_info.path + " updated current revision is: " + str(cur_revision))
 
         if config.email_use_ssl:
             mail.starttls()

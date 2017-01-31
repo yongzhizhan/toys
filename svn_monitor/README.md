@@ -6,10 +6,14 @@
 
 1. 将config.default.py修改为config.py
 2. 填写好svn和发送email的信息
-3. 执行server.py
+3. 执行python2.7 server.py,启动服务器
 
 ## 用到的一些组件
 
 1. Flask
 2. Bootstrap
 3. Sqlalchemy
+
+
+## 截图
+![](http://i1.piimg.com/567571/69d2eb324089f9b5.png)

@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # coding:utf-8
 
+# control
+intervalS = 10
+
 # svn setting
 svn_user = "test",
 svn_pwd = "test",

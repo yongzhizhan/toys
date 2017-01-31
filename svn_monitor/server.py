@@ -8,6 +8,7 @@ import sqlite3
 import json
 import random
 
+import config
 from database import DataBase
 from models import SvnInfo, MailInfo
 from svn_monitor import SvnMonitor
@@ -135,7 +136,7 @@ def add_test_data():
 if __name__ == "__main__":
     add_test_data()
 
-    monitor = SvnMonitor(3)
+    monitor = SvnMonitor(config.intervalS)
     monitor.start()
 
     app.run()
