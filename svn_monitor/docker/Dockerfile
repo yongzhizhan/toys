@@ -1,3 +1,4 @@
+# docker run -p 5000:5000 -v $(pwd)/../config.py:/opt/svn_monitor/config.py yongzhizhan/svn_monitor
 FROM micktwomey/python2.7
 
 # Define working directory.
